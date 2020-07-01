@@ -5,6 +5,14 @@ const app = express()
 
 const port = 3000
 
+app.set('views', './views')
+app.set("view engine", 'ejs')
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', (req, res) => {
+    res.send("Funciona")
+})
+
 app.listen(port, () => {
-    console.log("Servidor en le puerto: " , port)
+    console.log("Servidor en el puerto: " , port)
 })
